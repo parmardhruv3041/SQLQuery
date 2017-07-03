@@ -43,3 +43,7 @@ update <table> SET <attr1>,<attr2>  where <cond..> end  /* complete operation1*/
 else 
 begin 
 INSERT INTO <table>(<attr..>) VALUES (<val..>) end
+/*we can also use if else condition upto end or if not exists query*/
+
+
+
