@@ -16,3 +16,10 @@ FROM <table> t inner join
  /* relation on table to be pivot  */
  
  
+ /*
+ pagging query
+ */
+ SELECT * FROM 
+ (SELECT *,ROW_NUMBER() OVER (ORDER BY CreateDate DESC) rownum 
+  from <table>)
+ seq WHERE seq.rownum BETWEEN <start> AND <end> 
