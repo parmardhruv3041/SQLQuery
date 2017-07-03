@@ -23,3 +23,23 @@ FROM <table> t inner join
  (SELECT *,ROW_NUMBER() OVER (ORDER BY CreateDate DESC) rownum 
   from <table>)
  seq WHERE seq.rownum BETWEEN <start> AND <end> 
+
+/*
+search item query
+*/
+select * from <table> where item like '%<item>%'
+
+
+/*
+Conditional query
+*/
+if exists 
+(SELECT * FROM <table> WHERE <cond1> and <cond2> and <cond3>.<attr>.Replace("'", "''"))
+begin
+/*
+query operation like select,insert,update,delete etc..
+*/
+update <table> SET <attr1>,<attr2>  where <cond..> end  /* complete operation1*/
+else 
+begin 
+INSERT INTO <table>(<attr..>) VALUES (<val..>) end
